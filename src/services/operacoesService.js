@@ -45,7 +45,12 @@ export const obterOperacao = (id) =>
 /** Resumo consumido pela Home. */
 export const obterResumo = () =>
   request(() => {
-    const emAndamento = base.filter((operacao) => ['enviada', 'aceite_sacado', 'registro', 'credito'].includes(operacao.status));
+    // 'aguardando_assinatura' conta como em andamento: o limite já está
+    // comprometido e a operação já existe. Fora desta lista ela desaparece do
+    // card da Home sem erro nenhum.
+    const emAndamento = base.filter((operacao) =>
+      ['aguardando_assinatura', 'enviada', 'aceite_sacado', 'registro', 'credito'].includes(operacao.status)
+    );
     const liquidadas = base.filter((operacao) => operacao.status === 'liquidada');
 
     const proximasLiquidacoes = base

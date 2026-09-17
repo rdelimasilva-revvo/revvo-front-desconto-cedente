@@ -55,7 +55,7 @@
  */
 
 /**
- * @typedef {'enviada'|'aceite_sacado'|'registro'|'credito'|'liquidada'|'recusada'} StatusOperacao
+ * @typedef {'aguardando_assinatura'|'enviada'|'aceite_sacado'|'registro'|'credito'|'liquidada'|'recusada'} StatusOperacao
  */
 
 /**
@@ -160,6 +160,7 @@ export const ORIGEM_LABEL = {
 };
 
 export const STATUS_OPERACAO_LABEL = {
+  aguardando_assinatura: 'Aguardando assinatura',
   enviada: 'Enviada',
   aceite_sacado: 'Aceite do sacado',
   registro: 'Registro na registradora',
@@ -169,6 +170,7 @@ export const STATUS_OPERACAO_LABEL = {
 };
 
 export const ETAPAS_OPERACAO = [
+  'Assinatura do termo',
   'Enviada',
   'Aceite do sacado',
   'Registro na registradora',

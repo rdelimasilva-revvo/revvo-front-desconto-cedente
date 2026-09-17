@@ -27,6 +27,7 @@ export const TOM_STATUS_REGISTRO = {
 };
 
 export const TOM_STATUS_OPERACAO = {
+  aguardando_assinatura: 'amarelo',
   enviada: 'azul',
   aceite_sacado: 'azul',
   registro: 'azul',
