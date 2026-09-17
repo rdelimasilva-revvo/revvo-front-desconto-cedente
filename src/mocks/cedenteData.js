@@ -294,7 +294,7 @@ export const OPERACOES = [
     etapas: [
       etapa('Assinatura do termo', 'concluida', 17, 'Termo assinado'),
       etapa('Enviada', 'concluida', 16, 'Protocolo de envio'),
-      etapa('Aceite do sacado', 'em_andamento', null),
+      etapa('Aceite do sacado', 'pendente', null),
       etapa('Registro na registradora', 'pendente', null),
       etapa('Crédito em conta', 'pendente', null),
       etapa('Liquidada', 'pendente', null)
@@ -311,7 +311,7 @@ export const OPERACOES = [
     etapas: [
       etapa('Assinatura do termo', 'concluida', 41, 'Termo assinado'),
       etapa('Enviada', 'concluida', 40, 'Protocolo de envio'),
-      etapa('Aceite do sacado', 'em_andamento', null),
+      etapa('Aceite do sacado', 'pendente', null),
       etapa('Registro na registradora', 'pendente', null),
       etapa('Crédito em conta', 'pendente', null),
       etapa('Liquidada', 'pendente', null)
@@ -355,7 +355,7 @@ export const OPERACOES = [
     etapas: [
       etapa('Assinatura do termo', 'concluida', 66, 'Termo assinado'),
       etapa('Enviada', 'concluida', 65, 'Protocolo de envio'),
-      etapa('Aceite do sacado', 'em_andamento', null),
+      etapa('Aceite do sacado', 'pendente', null),
       etapa('Registro na registradora', 'pendente', null),
       etapa('Crédito em conta', 'pendente', null),
       etapa('Liquidada', 'pendente', null)
@@ -372,7 +372,7 @@ export const OPERACOES = [
     etapas: [
       etapa('Assinatura do termo', 'concluida', 91, 'Termo assinado'),
       etapa('Enviada', 'concluida', 90, 'Protocolo de envio'),
-      etapa('Aceite do sacado', 'em_andamento', null),
+      etapa('Aceite do sacado', 'pendente', null),
       etapa('Registro na registradora', 'pendente', null),
       etapa('Crédito em conta', 'pendente', null),
       etapa('Liquidada', 'pendente', null)
@@ -406,8 +406,8 @@ export const OPERACOES = [
     etapas: [
       etapa('Assinatura do termo', 'concluida', 101, 'Termo assinado'),
       etapa('Enviada', 'concluida', 100, 'Protocolo de envio'),
-      etapa('Aceite do sacado', 'concluida', 96, 'Aceite eletrônico'),
-      etapa('Registro na registradora', 'em_andamento', null),
+      etapa('Aceite do sacado', 'em_andamento', null),
+      etapa('Registro na registradora', 'pendente', null),
       etapa('Crédito em conta', 'pendente', null),
       etapa('Liquidada', 'pendente', null)
     ]
@@ -423,8 +423,8 @@ export const OPERACOES = [
     etapas: [
       etapa('Assinatura do termo', 'concluida', 131, 'Termo assinado'),
       etapa('Enviada', 'concluida', 130, 'Protocolo de envio'),
-      etapa('Aceite do sacado', 'concluida', 126, 'Aceite eletrônico'),
-      etapa('Registro na registradora', 'em_andamento', null),
+      etapa('Aceite do sacado', 'em_andamento', null),
+      etapa('Registro na registradora', 'pendente', null),
       etapa('Crédito em conta', 'pendente', null),
       etapa('Liquidada', 'pendente', null)
     ]
@@ -440,8 +440,8 @@ export const OPERACOES = [
     etapas: [
       etapa('Assinatura do termo', 'concluida', 151, 'Termo assinado'),
       etapa('Enviada', 'concluida', 150, 'Protocolo de envio'),
-      etapa('Aceite do sacado', 'concluida', 146, 'Aceite eletrônico'),
-      etapa('Registro na registradora', 'em_andamento', null),
+      etapa('Aceite do sacado', 'em_andamento', null),
+      etapa('Registro na registradora', 'pendente', null),
       etapa('Crédito em conta', 'pendente', null),
       etapa('Liquidada', 'pendente', null)
     ]
@@ -458,8 +458,8 @@ export const OPERACOES = [
       etapa('Assinatura do termo', 'concluida', 181, 'Termo assinado'),
       etapa('Enviada', 'concluida', 180, 'Protocolo de envio'),
       etapa('Aceite do sacado', 'concluida', 176, 'Aceite eletrônico'),
-      etapa('Registro na registradora', 'concluida', 170, 'Protocolo CERC 8845233-17'),
-      etapa('Crédito em conta', 'em_andamento', null),
+      etapa('Registro na registradora', 'em_andamento', null),
+      etapa('Crédito em conta', 'pendente', null),
       etapa('Liquidada', 'pendente', null)
     ]
   },
@@ -475,8 +475,8 @@ export const OPERACOES = [
       etapa('Assinatura do termo', 'concluida', 221, 'Termo assinado'),
       etapa('Enviada', 'concluida', 220, 'Protocolo de envio'),
       etapa('Aceite do sacado', 'concluida', 216, 'Aceite eletrônico'),
-      etapa('Registro na registradora', 'concluida', 210, 'Protocolo CERC 8845309-52'),
-      etapa('Crédito em conta', 'em_andamento', null),
+      etapa('Registro na registradora', 'em_andamento', null),
+      etapa('Crédito em conta', 'pendente', null),
       etapa('Liquidada', 'pendente', null)
     ]
   },
@@ -492,8 +492,8 @@ export const OPERACOES = [
       etapa('Assinatura do termo', 'concluida', 261, 'Termo assinado'),
       etapa('Enviada', 'concluida', 260, 'Protocolo de envio'),
       etapa('Aceite do sacado', 'concluida', 256, 'Aceite eletrônico'),
-      etapa('Registro na registradora', 'concluida', 250, 'Protocolo CERC 8845412-88'),
-      etapa('Crédito em conta', 'em_andamento', null),
+      etapa('Registro na registradora', 'em_andamento', null),
+      etapa('Crédito em conta', 'pendente', null),
       etapa('Liquidada', 'pendente', null)
     ]
   },
@@ -511,7 +511,7 @@ export const OPERACOES = [
       etapa('Aceite do sacado', 'concluida', 296, 'Aceite eletrônico'),
       etapa('Registro na registradora', 'concluida', 290, 'Protocolo CERC 8845560-31'),
       etapa('Crédito em conta', 'concluida', 286, 'Comprovante de crédito'),
-      etapa('Liquidada', 'em_andamento', null)
+      etapa('Liquidada', 'pendente', null)
     ]
   },
   {
@@ -528,7 +528,7 @@ export const OPERACOES = [
       etapa('Aceite do sacado', 'concluida', 336, 'Aceite eletrônico'),
       etapa('Registro na registradora', 'concluida', 330, 'Protocolo CERC 8845678-04'),
       etapa('Crédito em conta', 'concluida', 326, 'Comprovante de crédito'),
-      etapa('Liquidada', 'em_andamento', null)
+      etapa('Liquidada', 'pendente', null)
     ]
   }
 ];
