@@ -254,7 +254,7 @@ export const OPERACOES = [
     taxaMensal: 1.3,
     status: 'aguardando_assinatura',
     titulos: [
-      tituloOperacao('rec-003', 'DUP-2210/01', 1, 22400.5, 21860.4, 15, 'Aguardando assinatura'),
+      tituloOperacao('rec-003', 'DUP-2210/01', 1, 22400.0, 21860.4, 15, 'Aguardando assinatura'),
       tituloOperacao('rec-004', 'DUP-2210/02', 1, 15800.0, 15400.0, 45, 'Aguardando assinatura')
     ],
     etapas: [
@@ -269,11 +269,11 @@ export const OPERACOES = [
   {
     id: 'OP-2026-0176',
     dataCriacao: addHours(-18),
-    valorBruto: 45600.0,
-    valorLiquido: 44392.6,
-    taxaMensal: 1.31,
+    valorBruto: 41300.0,
+    valorLiquido: 40312.6,
+    taxaMensal: 1.27,
     status: 'aguardando_assinatura',
-    titulos: [tituloOperacao('rec-014', 'DUP-4412/01', 3, 45600.0, 44392.6, 49, 'Aguardando assinatura')],
+    titulos: [tituloOperacao('rec-014', 'DUP-4415/01', 3, 41300.0, 40312.6, 49, 'Aguardando assinatura')],
     etapas: [
       etapa('Assinatura do termo', 'em_andamento', null),
       etapa('Enviada', 'pendente', null),
@@ -347,11 +347,11 @@ export const OPERACOES = [
   {
     id: 'OP-2026-0173',
     dataCriacao: addHours(-65),
-    valorBruto: 67800.0,
-    valorLiquido: 65982.1,
-    taxaMensal: 1.29,
+    valorBruto: 58900.0,
+    valorLiquido: 57193.9,
+    taxaMensal: 1.33,
     status: 'enviada',
-    titulos: [tituloOperacao('rec-015', 'DUP-5521/01', 4, 67800.0, 65982.1, 55, 'Aguardando aceite')],
+    titulos: [tituloOperacao('rec-015', 'DUP-5525/01', 4, 58900.0, 57193.9, 55, 'Aguardando aceite')],
     etapas: [
       etapa('Assinatura do termo', 'concluida', 66, 'Termo assinado'),
       etapa('Enviada', 'concluida', 65, 'Protocolo de envio'),
@@ -415,11 +415,11 @@ export const OPERACOES = [
   {
     id: 'OP-2026-0169',
     dataCriacao: addHours(-130),
-    valorBruto: 45600.0,
-    valorLiquido: 44392.6,
-    taxaMensal: 1.31,
+    valorBruto: 52900.0,
+    valorLiquido: 51471.7,
+    taxaMensal: 1.33,
     status: 'aceite_sacado',
-    titulos: [tituloOperacao('rec-014', 'DUP-4412/01', 3, 45600.0, 44392.6, 49, 'Aceito pelo sacado')],
+    titulos: [tituloOperacao('rec-014', 'DUP-4420/01', 3, 52900.0, 51471.7, 49, 'Aceito pelo sacado')],
     etapas: [
       etapa('Assinatura do termo', 'concluida', 131, 'Termo assinado'),
       etapa('Enviada', 'concluida', 130, 'Protocolo de envio'),
@@ -432,11 +432,11 @@ export const OPERACOES = [
   {
     id: 'OP-2026-0168',
     dataCriacao: addHours(-150),
-    valorBruto: 67800.0,
-    valorLiquido: 65982.1,
-    taxaMensal: 1.29,
+    valorBruto: 79400.0,
+    valorLiquido: 77335.6,
+    taxaMensal: 1.26,
     status: 'aceite_sacado',
-    titulos: [tituloOperacao('rec-015', 'DUP-5521/01', 4, 67800.0, 65982.1, 55, 'Aceito pelo sacado')],
+    titulos: [tituloOperacao('rec-015', 'DUP-5518/01', 4, 79400.0, 77335.6, 55, 'Aceito pelo sacado')],
     etapas: [
       etapa('Assinatura do termo', 'concluida', 151, 'Termo assinado'),
       etapa('Enviada', 'concluida', 150, 'Protocolo de envio'),
@@ -483,11 +483,11 @@ export const OPERACOES = [
   {
     id: 'OP-2026-0165',
     dataCriacao: addHours(-260),
-    valorBruto: 45600.0,
-    valorLiquido: 44392.6,
-    taxaMensal: 1.31,
+    valorBruto: 36750.0,
+    valorLiquido: 35960.9,
+    taxaMensal: 1.24,
     status: 'registro',
-    titulos: [tituloOperacao('rec-014', 'DUP-4412/01', 3, 45600.0, 44392.6, 49, 'Registrado')],
+    titulos: [tituloOperacao('rec-014', 'DUP-4408/01', 3, 36750.0, 35960.9, 49, 'Registrado')],
     etapas: [
       etapa('Assinatura do termo', 'concluida', 261, 'Termo assinado'),
       etapa('Enviada', 'concluida', 260, 'Protocolo de envio'),
