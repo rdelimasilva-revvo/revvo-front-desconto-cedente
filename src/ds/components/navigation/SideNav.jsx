@@ -213,7 +213,7 @@ export function SideNav({
     }}>
       {grupo && (
         <div style={{
-          display: 'flex', alignItems: 'center', gap: 8, padding: '6px 4px 8px 16px',
+          display: 'flex', alignItems: 'center', gap: 8, padding: '36px 4px 24px 16px',
           fontSize: 14, fontWeight: 400, color: 'var(--text-body)',
         }}>
           {icon(grupo.icon)}
