@@ -20,6 +20,9 @@ function findParentOf(items, activeId) {
 export function SideNav({
   items = [], footerItems = [], activeId, onSelect, style,
   collapsed = false, offCanvas = false, open = false, onClose,
+  // Cabecalho de grupo estatico acima dos itens, que ficam recuados sob ele —
+  // padrao do shell dos portais Revvo. { label, icon }
+  grupo = null,
 }) {
   const allItems = [...items, ...footerItems];
   const [expanded, setExpanded] = React.useState(() => {
@@ -113,6 +116,11 @@ export function SideNav({
           {icon(item.icon)}
           <span style={{ flex: 1 }}>{item.label}</span>
           {item.badge != null && <span style={badgeStyle}>{item.badge}</span>}
+          {activeId === item.id && item.badge == null && (
+            <span aria-hidden="true" style={{
+              width: 6, height: 6, flex: 'none', borderRadius: '50%', background: 'var(--sidenav-active-fg)',
+            }}></span>
+          )}
         </button>
       );
     }
@@ -203,7 +211,16 @@ export function SideNav({
       padding: 12, background: 'var(--surface-card)', borderRight: '1px solid var(--border-subtle)',
       fontFamily: 'var(--font-sans)', ...style, ...extra,
     }}>
-      {items.map(renderItem)}
+      {grupo && (
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 8, padding: '6px 4px 8px 16px',
+          fontSize: 14, fontWeight: 400, color: 'var(--text-body)',
+        }}>
+          {icon(grupo.icon)}
+          <span>{grupo.label}</span>
+        </div>
+      )}
+      {grupo ? <div style={{ paddingLeft: 28 }}>{items.map(renderItem)}</div> : items.map(renderItem)}
       {footerItems.length > 0 && (
         <div style={{ marginTop: 'auto', paddingTop: 12, borderTop: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: 2 }}>
           {footerItems.map(renderItem)}

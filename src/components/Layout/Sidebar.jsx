@@ -181,10 +181,11 @@ const Sidebar = ({
 
         <Marca $recolhida={recolhida}>
           <img src={recolhida ? logoSimbolo : logoRevvo} alt="Revvo" />
-          {!recolhida && <span className="produto">Revvo Trade - Portal do cedente</span>}
+          {!recolhida && <span className="produto">Revvo Trade - Portal do Cedente</span>}
         </Marca>
 
         <SideNav
+          grupo={{ label: 'Visão do Cedente', icon: 'landmark' }}
           items={itens}
           footerItems={[CONFIGURACOES]}
           activeId={currentPage}
