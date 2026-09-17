@@ -533,6 +533,49 @@ export const OPERACOES = [
   }
 ];
 
+const USUARIO_APROVADOR = { id: 'usr-1', nome: 'Mariana Andrade', papel: 'aprovador' };
+const USUARIO_OPERADOR = { id: 'usr-2', nome: 'Carlos Nakamura', papel: 'operador' };
+
+/** Hash só para a tela ter o que exibir como evidência. */
+const hashSimulado = (operacaoId) =>
+  `sha256:${operacaoId.replace(/\D/g, '')}${'a3f9c1e7b2d84056'}`.slice(0, 32);
+
+const termo = (operacaoId, status, horasAtras, criadoPor, assinadoPor) => {
+  const operacao = OPERACOES.find((item) => item.id === operacaoId);
+  if (!operacao) throw new Error(`Mock inconsistente: operação ${operacaoId} não existe.`);
+
+  return {
+    id: `TC-${operacaoId.replace('OP-', '')}`,
+    operacaoId,
+    status,
+    criadoEm: addHours(-horasAtras),
+    criadoPor,
+    quantidadeTitulos: operacao.titulos.length,
+    valorBruto: operacao.valorBruto,
+    valorLiquido: operacao.valorLiquido,
+    assinatura:
+      status === 'assinado'
+        ? {
+            assinadoPor,
+            assinadoEm: addHours(-horasAtras + 1),
+            metodo: 'aceite_eletronico_2fa',
+            hash: hashSimulado(operacaoId),
+            ip: '177.32.14.80'
+          }
+        : null
+  };
+};
+
+export const TERMOS_CESSAO = OPERACOES.map((operacao) => {
+  if (operacao.status === 'aguardando_assinatura') {
+    return termo(operacao.id, 'pendente', 4, USUARIO_OPERADOR, null);
+  }
+  if (operacao.status === 'recusada') {
+    return termo(operacao.id, 'cancelado', 80, USUARIO_OPERADOR, null);
+  }
+  return termo(operacao.id, 'assinado', 30, USUARIO_OPERADOR, USUARIO_APROVADOR);
+});
+
 export const CEDENTE = {
   razaoSocial: 'Comercial Andrade Distribuição S/A',
   nomeFantasia: 'Andrade Distribuição',

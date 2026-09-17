@@ -36,4 +36,10 @@ export const TOM_STATUS_OPERACAO = {
   recusada: 'vermelho'
 };
 
+export const TOM_STATUS_TERMO = {
+  pendente: 'amarelo',
+  assinado: 'verde',
+  cancelado: 'neutro'
+};
+
 export default StatusBadge;

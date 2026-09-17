@@ -94,6 +94,32 @@
  */
 
 /**
+ * @typedef {'pendente'|'assinado'|'cancelado'} StatusTermo
+ */
+
+/**
+ * @typedef {Object} AssinaturaTermo
+ * @property {{id: string, nome: string, papel: string}} assinadoPor
+ * @property {string} assinadoEm          ISO completo
+ * @property {'aceite_eletronico_2fa'} metodo
+ * @property {string} hash                SHA-256 simulado do texto do termo
+ * @property {string} ip                  simulado
+ */
+
+/**
+ * @typedef {Object} TermoCessao
+ * @property {string} id                  TC-2026-0184
+ * @property {string} operacaoId
+ * @property {StatusTermo} status
+ * @property {string} criadoEm            ISO completo
+ * @property {{id: string, nome: string, papel: string}} criadoPor
+ * @property {number} quantidadeTitulos   desnormalizado da operação
+ * @property {number} valorBruto          desnormalizado da operação
+ * @property {number} valorLiquido        desnormalizado da operação
+ * @property {AssinaturaTermo|null} assinatura
+ */
+
+/**
  * @typedef {Object} ContaBancaria
  * @property {string} banco
  * @property {string} codigoBanco
@@ -177,6 +203,12 @@ export const ETAPAS_OPERACAO = [
   'Crédito em conta',
   'Liquidada'
 ];
+
+export const STATUS_TERMO_LABEL = {
+  pendente: 'Aguardando assinatura',
+  assinado: 'Assinado',
+  cancelado: 'Cancelado'
+};
 
 export const EVENTOS_NOTIFICACAO = [
   { id: 'operacao_aprovada', label: 'Operação aprovada' },
