@@ -13,7 +13,20 @@
 ## Global Constraints
 
 - **Não existe suíte de testes.** `package.json` expõe apenas `dev`, `build`, `build:demo`, `lint`, `preview`, `preview:demo`. Não instale Vitest/Jest: não foi autorizado. Cada tarefa verifica com `npx eslint` e com um script de asserção rodado no console do navegador, fornecido na própria tarefa.
-- **Linha de base do lint: 45 erros.** Todos pré-existentes, de `react/prop-types` e `no-unused-vars`. Uma tarefa passa se não *aumentar* essa contagem nos arquivos que tocou. Não "conserte" os pré-existentes: isso polui o diff.
+- **Linha de base do lint, medida por arquivo** (todos pré-existentes, de `react/prop-types`, `no-unused-vars` e `react-hooks/rules-of-hooks`). Uma tarefa passa se não *aumentar* a contagem do arquivo que tocou. Não "conserte" os pré-existentes: polui o diff e sai do escopo.
+
+  | Caminho | Erros pré-existentes |
+  |---|---|
+  | `src/services/cadastroService.js` | 0 |
+  | `src/services/operacoesService.js` | 0 |
+  | `src/types/entities.js` | 0 |
+  | `src/mocks/cedenteData.js` | 0 |
+  | `src/components/Common/StatusBadge.jsx` | 6 |
+  | `src/components/Cedente/Contratacao/ContratacaoModal.jsx` | 19 |
+  | `src/components/Cedente/Operacoes/` (diretório) | 6 |
+  | `src/` (total do projeto) | 877 |
+
+  Arquivos novos (`src/services/termosService.js`, `src/domain/termoCessao.jsx`, `OperacoesLista.jsx`, `TermosCessao.jsx`, `AssinaturaModal.jsx`) começam em 0 e **devem terminar em 0**, exceto os `react/prop-types` que o padrão do projeto já aceita em componentes — esses são esperados e não contam como regressão.
 - **Idioma do código:** identificadores, comentários e strings de UI em português, sem acento em nomes de identificador (`assinarTermos`, não `assinarTermös`). Strings de UI **com** acentuação correta.
 - **Telas nunca importam de `src/mocks/`.** Só `src/services/*` lê mocks. Esta é a fronteira que permite trocar mock por HTTP sem tocar tela.
 - **Todo serviço novo envolve o retorno em `request()`** de `src/services/mockApi.js`, para herdar latência simulada e o modo de falha (`localStorage.setItem('mockApiFailRate','1')`).
@@ -246,6 +259,11 @@ git commit -m "feat: status aguardando_assinatura e etapa de assinatura do termo
 ### Task 3: Entidade `TermoCessao`, mock e `termosService`
 
 O coração do trabalho. Inclui a assinatura em lote não-transacional.
+
+> **Ordem de execução:** esta tarefa roda **depois da Task 4**. O `TERMOS_CESSAO`
+> deriva de `OPERACOES` procurando status `aguardando_assinatura`, que só existe
+> depois da Task 4 expandir o mock. Executada antes, a fila nasce vazia e a
+> verificação do Step 4 quebra em `pendentes[0].id`.
 
 **Files:**
 - Modify: `src/types/entities.js` (typedefs novos, ao lado do typedef `Operacao`, e `STATUS_TERMO_LABEL`)
@@ -570,6 +588,11 @@ git commit -m "feat: entidade TermoCessao, mock e termosService com assinatura e
 
 ### Task 4: Expandir o mock de 7 para 24 operações
 
+> **Ordem de execução:** esta tarefa roda **antes da Task 3**, porque a Task 3
+> deriva os termos das operações. Por isso a verificação abaixo **não** consulta
+> o `termosService`, que ainda não existe — as asserções sobre termos vivem na
+> Task 3.
+
 **Files:**
 - Modify: `src/mocks/cedenteData.js` (o array `OPERACOES`)
 
@@ -675,26 +698,22 @@ Siga esses três moldes para as demais, variando sacado (índices 0 a 4), valore
 
 ```js
 const o = await import('/src/services/operacoesService.js');
-const t = await import('/src/services/termosService.js');
 const e = await import('/src/types/entities.js');
 const todas = await o.listarOperacoes();
-const termos = await t.listarTermos();
 const porStatus = todas.reduce((a, x) => ({ ...a, [x.status]: (a[x.status] || 0) + 1 }), {});
 console.log(porStatus);
 console.table({
   vinteEQuatro: todas.length === 24,
   seteStatusDistintos: Object.keys(porStatus).length === 7,
+  tresAguardandoAssinatura: porStatus.aguardando_assinatura === 3,
   todasComSeisEtapas: todas.every(x => x.etapas.length === 6),
   etapasNaOrdemCanonica: todas.every(x => x.etapas.every((et, i) => et.nome === e.ETAPAS_OPERACAO[i])),
   recusadasTemMotivo: todas.filter(x => x.status === 'recusada').every(x => !!x.motivoRecusa),
-  todaOperacaoTemTermo: todas.every(x => termos.some(tm => tm.operacaoId === x.id)),
-  pendentesBatemComAguardando:
-    termos.filter(x => x.status === 'pendente').length === (porStatus.aguardando_assinatura || 0),
   idsUnicos: new Set(todas.map(x => x.id)).size === todas.length,
 });
 ```
 
-Esperado: as oito `true`. `etapasNaOrdemCanonica` pega o erro mais fácil de cometer aqui — esquecer a etapa nova em uma das 7 antigas.
+Esperado: as sete `true`. `etapasNaOrdemCanonica` pega o erro mais fácil de cometer aqui — esquecer a etapa nova em uma das 7 antigas. `tresAguardandoAssinatura` garante que a Task 3 terá fila com conteúdo.
 
 - [ ] **Step 3: Commit**
 
@@ -1366,7 +1385,7 @@ git commit -m "feat: seletor de papel para demonstrar alcada em Operacoes"
 
 Depois da última tarefa:
 
-- [ ] `npx eslint src/` e confirmar que o total de erros continua 45
+- [ ] `npx eslint src/ 2>&1 | grep -cE "^\s+[0-9]+:[0-9]+"` e confirmar que o total do projeto não subiu acima de **877** mais os `react/prop-types` esperados dos componentes novos
 - [ ] `npm run build:demo` conclui sem erro
 - [ ] Percurso completo como operador: contratar → operação retida em `aguardando_assinatura` → aparece na fila como pendente
 - [ ] Percurso completo como aprovador: assinar em lote → operações liberadas para `enviada` → contador da aba zera
