@@ -1,0 +1,16 @@
+node_modules
+
+# Variaveis de ambiente - nunca commitar (contem chaves do Supabase)
+.env
+.env.local
+.env.*.local
+
+# Logs e SO
+*.log
+.DS_Store
+
+# Build - o Netlify gera no deploy, nao versionar
+dist
+
+# Configuracao local de ferramentas
+.claude/settings.local.json

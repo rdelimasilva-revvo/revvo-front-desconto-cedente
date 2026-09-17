@@ -1,0 +1,23 @@
+# Deploy do ambiente de demonstracao.
+#
+# Usa o modo demo (`--mode demo`), que le o .env.demo versionado e roda com o
+# cliente Supabase falso: entra sem login e nao depende de nenhuma variavel de
+# ambiente configurada no painel do Netlify.
+#
+# Para voltar ao app conectado ao Supabase, troque o command por
+# `npm run build` e cadastre VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY em
+# Site settings > Environment variables. Sem isso o build sobe, mas o app
+# quebra em runtime com "supabaseUrl is required".
+
+[build]
+  command = "npm run build:demo"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA: qualquer rota cai no index.html para o react-router resolver.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
