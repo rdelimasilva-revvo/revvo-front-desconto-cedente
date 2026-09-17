@@ -181,7 +181,7 @@ const Sidebar = ({
 
         <Marca $recolhida={recolhida}>
           <img src={recolhida ? logoSimbolo : logoRevvo} alt="Revvo" />
-          {!recolhida && <span className="produto">Revvo Trade - Portal do Cedente</span>}
+          {!recolhida && <span className="produto">Trade - Portal do Cedente</span>}
         </Marca>
 
         <SideNav
