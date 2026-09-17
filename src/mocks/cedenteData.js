@@ -100,6 +100,7 @@ export const OPERACOES = [
       tituloOperacao('rec-002', 'DUP-1042/02', 0, 48750.0, 47374.84, 58, 'Aguardando aceite')
     ],
     etapas: [
+      etapa('Assinatura do termo', 'concluida', 7, 'Termo assinado'),
       etapa('Enviada', 'concluida', 6, 'Protocolo de envio'),
       etapa('Aceite do sacado', 'em_andamento', null),
       etapa('Registro na registradora', 'pendente', null),
@@ -119,6 +120,7 @@ export const OPERACOES = [
       tituloOperacao('rec-006', 'DUP-3390/02', 2, 156000.0, 151207.2, 63, 'Creditado')
     ],
     etapas: [
+      etapa('Assinatura do termo', 'concluida', 31, 'Termo assinado'),
       etapa('Enviada', 'concluida', 30, 'Protocolo de envio'),
       etapa('Aceite do sacado', 'concluida', 28, 'Aceite eletrônico'),
       etapa('Registro na registradora', 'concluida', 26, 'Protocolo CERC 8829104-22'),
@@ -139,6 +141,7 @@ export const OPERACOES = [
       tituloOperacao('rec-004', 'DUP-2210/02', 1, 22401.5, 21790.5, 45, 'Recusado', 'Divergência de valor com a nota fiscal')
     ],
     etapas: [
+      etapa('Assinatura do termo', 'concluida', 55, 'Termo assinado'),
       etapa('Enviada', 'concluida', 54, 'Protocolo de envio'),
       etapa('Aceite do sacado', 'recusada', 50, null, MOTIVO_RECUSA_0182),
       etapa('Registro na registradora', 'pendente', null),
@@ -158,6 +161,7 @@ export const OPERACOES = [
       tituloOperacao('rec-014', 'DUP-4412/01', 3, 28600.0, 27910.22, 6, 'Creditado')
     ],
     etapas: [
+      etapa('Assinatura do termo', 'concluida', 73, 'Termo assinado'),
       etapa('Enviada', 'concluida', 72, 'Protocolo de envio'),
       etapa('Aceite do sacado', 'concluida', 70, 'Aceite eletrônico'),
       etapa('Registro na registradora', 'concluida', 68, 'Protocolo CERC 8835221-09'),
@@ -177,6 +181,7 @@ export const OPERACOES = [
       tituloOperacao('rec-008', 'DUP-4411/02', 3, 9820.75, 9552.22, -1, 'Liquidado')
     ],
     etapas: [
+      etapa('Assinatura do termo', 'concluida', 121, 'Termo assinado'),
       etapa('Enviada', 'concluida', 120, 'Protocolo de envio'),
       etapa('Aceite do sacado', 'concluida', 118, 'Aceite eletrônico'),
       etapa('Registro na registradora', 'concluida', 116, 'Protocolo CERC 8811077-04'),
@@ -196,6 +201,7 @@ export const OPERACOES = [
       tituloOperacao('rec-010', 'DUP-5520/02', 4, 74300.0, 72156.4, -4, 'Liquidado')
     ],
     etapas: [
+      etapa('Assinatura do termo', 'concluida', 201, 'Termo assinado'),
       etapa('Enviada', 'concluida', 200, 'Protocolo de envio'),
       etapa('Aceite do sacado', 'concluida', 198, 'Aceite eletrônico'),
       etapa('Registro na registradora', 'concluida', 196, 'Protocolo CERC 8790155-71'),
@@ -212,11 +218,317 @@ export const OPERACOES = [
     status: 'liquidada',
     titulos: [tituloOperacao('rec-011', 'DUP-1041/01', 0, 63400.0, 61688.2, -12, 'Liquidado')],
     etapas: [
+      etapa('Assinatura do termo', 'concluida', 321, 'Termo assinado'),
       etapa('Enviada', 'concluida', 320, 'Protocolo de envio'),
       etapa('Aceite do sacado', 'concluida', 318, 'Aceite eletrônico'),
       etapa('Registro na registradora', 'concluida', 316, 'Protocolo CERC 8712900-38'),
       etapa('Crédito em conta', 'concluida', 314, 'Comprovante de crédito'),
       etapa('Liquidada', 'concluida', 288, 'Extrato de liquidação')
+    ]
+  },
+  {
+    id: 'OP-2026-0178',
+    dataCriacao: addHours(-4),
+    valorBruto: 64200.0,
+    valorLiquido: 62480.55,
+    taxaMensal: 1.32,
+    status: 'aguardando_assinatura',
+    titulos: [
+      tituloOperacao('rec-011', 'DUP-5520/01', 4, 34200.0, 33290.1, 40, 'Aguardando assinatura'),
+      tituloOperacao('rec-012', 'DUP-5520/02', 4, 30000.0, 29190.45, 70, 'Aguardando assinatura')
+    ],
+    etapas: [
+      etapa('Assinatura do termo', 'em_andamento', null),
+      etapa('Enviada', 'pendente', null),
+      etapa('Aceite do sacado', 'pendente', null),
+      etapa('Registro na registradora', 'pendente', null),
+      etapa('Crédito em conta', 'pendente', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0177',
+    dataCriacao: addHours(-10),
+    valorBruto: 38200.0,
+    valorLiquido: 37260.4,
+    taxaMensal: 1.3,
+    status: 'aguardando_assinatura',
+    titulos: [
+      tituloOperacao('rec-003', 'DUP-2210/01', 1, 22400.5, 21860.4, 15, 'Aguardando assinatura'),
+      tituloOperacao('rec-004', 'DUP-2210/02', 1, 15800.0, 15400.0, 45, 'Aguardando assinatura')
+    ],
+    etapas: [
+      etapa('Assinatura do termo', 'em_andamento', null),
+      etapa('Enviada', 'pendente', null),
+      etapa('Aceite do sacado', 'pendente', null),
+      etapa('Registro na registradora', 'pendente', null),
+      etapa('Crédito em conta', 'pendente', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0176',
+    dataCriacao: addHours(-18),
+    valorBruto: 45600.0,
+    valorLiquido: 44392.6,
+    taxaMensal: 1.31,
+    status: 'aguardando_assinatura',
+    titulos: [tituloOperacao('rec-014', 'DUP-4412/01', 3, 45600.0, 44392.6, 49, 'Aguardando assinatura')],
+    etapas: [
+      etapa('Assinatura do termo', 'em_andamento', null),
+      etapa('Enviada', 'pendente', null),
+      etapa('Aceite do sacado', 'pendente', null),
+      etapa('Registro na registradora', 'pendente', null),
+      etapa('Crédito em conta', 'pendente', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0176-B',
+    dataCriacao: addHours(-16),
+    valorBruto: 22400.0,
+    valorLiquido: 21821.9,
+    taxaMensal: 1.31,
+    status: 'enviada',
+    titulos: [tituloOperacao('rec-015', 'DUP-5521/01', 4, 22400.0, 21821.9, 55, 'Aguardando aceite')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 17, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 16, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'em_andamento', null),
+      etapa('Registro na registradora', 'pendente', null),
+      etapa('Crédito em conta', 'pendente', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0175',
+    dataCriacao: addHours(-40),
+    valorBruto: 92500.0,
+    valorLiquido: 90128.7,
+    taxaMensal: 1.34,
+    status: 'enviada',
+    titulos: [tituloOperacao('rec-013', 'DUP-3391/01', 2, 92500.0, 90128.7, 36, 'Aguardando aceite')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 41, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 40, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'em_andamento', null),
+      etapa('Registro na registradora', 'pendente', null),
+      etapa('Crédito em conta', 'pendente', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0174',
+    dataCriacao: addHours(-620),
+    valorBruto: 88400.0,
+    valorLiquido: 85990.2,
+    taxaMensal: 1.36,
+    status: 'recusada',
+    motivoRecusa:
+      'Sacado não reconheceu a duplicata DUP-3391/04: nota fiscal cancelada na SEFAZ após a emissão do título.',
+    titulos: [
+      tituloOperacao('rec-018', 'DUP-3391/04', 2, 88400.0, 85990.2, 22, 'Recusado', 'Nota fiscal cancelada')
+    ],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 621, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 620, 'Protocolo de envio'),
+      etapa(
+        'Aceite do sacado',
+        'recusada',
+        612,
+        null,
+        'Sacado não reconheceu a duplicata: nota fiscal cancelada na SEFAZ.'
+      ),
+      etapa('Registro na registradora', 'pendente', null),
+      etapa('Crédito em conta', 'pendente', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0173',
+    dataCriacao: addHours(-65),
+    valorBruto: 67800.0,
+    valorLiquido: 65982.1,
+    taxaMensal: 1.29,
+    status: 'enviada',
+    titulos: [tituloOperacao('rec-015', 'DUP-5521/01', 4, 67800.0, 65982.1, 55, 'Aguardando aceite')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 66, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 65, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'em_andamento', null),
+      etapa('Registro na registradora', 'pendente', null),
+      etapa('Crédito em conta', 'pendente', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0172',
+    dataCriacao: addHours(-90),
+    valorBruto: 48750.0,
+    valorLiquido: 47461.28,
+    taxaMensal: 1.32,
+    status: 'enviada',
+    titulos: [tituloOperacao('rec-001', 'DUP-1042/01', 0, 48750.0, 47461.28, 28, 'Aguardando aceite')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 91, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 90, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'em_andamento', null),
+      etapa('Registro na registradora', 'pendente', null),
+      etapa('Crédito em conta', 'pendente', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0171',
+    dataCriacao: addHours(-1680),
+    valorBruto: 208000.0,
+    valorLiquido: 202410.8,
+    taxaMensal: 1.24,
+    status: 'liquidada',
+    titulos: [tituloOperacao('rec-020', 'DUP-4411/07', 3, 208000.0, 202410.8, -18, 'Liquidado')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 1681, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 1680, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'concluida', 1676, 'Aceite eletrônico'),
+      etapa('Registro na registradora', 'concluida', 1670, 'Protocolo CERC 7710233-45'),
+      etapa('Crédito em conta', 'concluida', 1668, 'Comprovante de crédito'),
+      etapa('Liquidada', 'concluida', 432, 'Comprovante de liquidação')
+    ]
+  },
+  {
+    id: 'OP-2026-0170',
+    dataCriacao: addHours(-100),
+    valorBruto: 18900.0,
+    valorLiquido: 18402.5,
+    taxaMensal: 1.3,
+    status: 'aceite_sacado',
+    titulos: [tituloOperacao('rec-012', 'DUP-2211/01', 1, 18900.0, 18402.5, 26, 'Aceito pelo sacado')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 101, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 100, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'concluida', 96, 'Aceite eletrônico'),
+      etapa('Registro na registradora', 'em_andamento', null),
+      etapa('Crédito em conta', 'pendente', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0169',
+    dataCriacao: addHours(-130),
+    valorBruto: 45600.0,
+    valorLiquido: 44392.6,
+    taxaMensal: 1.31,
+    status: 'aceite_sacado',
+    titulos: [tituloOperacao('rec-014', 'DUP-4412/01', 3, 45600.0, 44392.6, 49, 'Aceito pelo sacado')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 131, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 130, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'concluida', 126, 'Aceite eletrônico'),
+      etapa('Registro na registradora', 'em_andamento', null),
+      etapa('Crédito em conta', 'pendente', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0168',
+    dataCriacao: addHours(-150),
+    valorBruto: 67800.0,
+    valorLiquido: 65982.1,
+    taxaMensal: 1.29,
+    status: 'aceite_sacado',
+    titulos: [tituloOperacao('rec-015', 'DUP-5521/01', 4, 67800.0, 65982.1, 55, 'Aceito pelo sacado')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 151, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 150, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'concluida', 146, 'Aceite eletrônico'),
+      etapa('Registro na registradora', 'em_andamento', null),
+      etapa('Crédito em conta', 'pendente', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0167',
+    dataCriacao: addHours(-180),
+    valorBruto: 31200.0,
+    valorLiquido: 30392.8,
+    taxaMensal: 1.28,
+    status: 'registro',
+    titulos: [tituloOperacao('rec-011', 'DUP-1043/01', 0, 31200.0, 30392.8, 12, 'Registrado')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 181, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 180, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'concluida', 176, 'Aceite eletrônico'),
+      etapa('Registro na registradora', 'concluida', 170, 'Protocolo CERC 8845233-17'),
+      etapa('Crédito em conta', 'em_andamento', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0166',
+    dataCriacao: addHours(-220),
+    valorBruto: 156000.0,
+    valorLiquido: 151980.2,
+    taxaMensal: 1.28,
+    status: 'registro',
+    titulos: [tituloOperacao('rec-005', 'DUP-3390/01', 2, 156000.0, 151980.2, 33, 'Registrado')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 221, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 220, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'concluida', 216, 'Aceite eletrônico'),
+      etapa('Registro na registradora', 'concluida', 210, 'Protocolo CERC 8845309-52'),
+      etapa('Crédito em conta', 'em_andamento', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0165',
+    dataCriacao: addHours(-260),
+    valorBruto: 45600.0,
+    valorLiquido: 44392.6,
+    taxaMensal: 1.31,
+    status: 'registro',
+    titulos: [tituloOperacao('rec-014', 'DUP-4412/01', 3, 45600.0, 44392.6, 49, 'Registrado')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 261, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 260, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'concluida', 256, 'Aceite eletrônico'),
+      etapa('Registro na registradora', 'concluida', 250, 'Protocolo CERC 8845412-88'),
+      etapa('Crédito em conta', 'em_andamento', null),
+      etapa('Liquidada', 'pendente', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0164',
+    dataCriacao: addHours(-300),
+    valorBruto: 74300.0,
+    valorLiquido: 72156.4,
+    taxaMensal: 1.29,
+    status: 'credito',
+    titulos: [tituloOperacao('rec-009', 'DUP-5520/01', 4, 74300.0, 72156.4, 40, 'Creditado')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 301, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 300, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'concluida', 296, 'Aceite eletrônico'),
+      etapa('Registro na registradora', 'concluida', 290, 'Protocolo CERC 8845560-31'),
+      etapa('Crédito em conta', 'concluida', 286, 'Comprovante de crédito'),
+      etapa('Liquidada', 'em_andamento', null)
+    ]
+  },
+  {
+    id: 'OP-2026-0163',
+    dataCriacao: addHours(-340),
+    valorBruto: 22400.5,
+    valorLiquido: 21860.4,
+    taxaMensal: 1.35,
+    status: 'credito',
+    titulos: [tituloOperacao('rec-003', 'DUP-2210/01', 1, 22400.5, 21860.4, 15, 'Creditado')],
+    etapas: [
+      etapa('Assinatura do termo', 'concluida', 341, 'Termo assinado'),
+      etapa('Enviada', 'concluida', 340, 'Protocolo de envio'),
+      etapa('Aceite do sacado', 'concluida', 336, 'Aceite eletrônico'),
+      etapa('Registro na registradora', 'concluida', 330, 'Protocolo CERC 8845678-04'),
+      etapa('Crédito em conta', 'concluida', 326, 'Comprovante de crédito'),
+      etapa('Liquidada', 'em_andamento', null)
     ]
   }
 ];
