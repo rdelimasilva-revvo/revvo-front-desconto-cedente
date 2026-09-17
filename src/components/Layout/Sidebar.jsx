@@ -27,7 +27,7 @@ const CONFIGURACOES = {
   ]
 };
 
-export const LARGURA_SIDEBAR = 260;
+export const LARGURA_SIDEBAR = 300;
 export const LARGURA_SIDEBAR_RECOLHIDA = 64;
 
 const Container = styled.div`
@@ -71,10 +71,12 @@ const Marca = styled.div`
     width: auto;
   }
 
+  /* Mesma tipografia do titulo no portal do financiador. */
   .produto {
-    font-size: var(--fs-caption);
+    font-size: var(--fs-body-sm);
     font-weight: var(--fw-semibold);
-    color: var(--text-muted);
+    color: var(--text-strong);
+    letter-spacing: -0.28px;
     line-height: 1.3;
   }
 `;

@@ -61,17 +61,20 @@ export function SideNav({
     if (offCanvas && onClose) onClose();
   };
 
-  const icon = (name, size = 18) => name
+  const icon = (name, size = 16) => name
     ? (typeof name === 'string'
         ? <i data-lucide={name} style={{ width: size, height: size, flex: 'none' }}></i>
         : <span style={{ display: 'inline-flex', width: size, height: size, flex: 'none' }}>{name}</span>)
     : null;
 
   const leafStyle = (on) => ({
-    display: 'flex', alignItems: 'center', gap: 12, width: '100%', height: 42, padding: '0 14px',
-    border: 'none', borderRadius: 'var(--radius-md)', background: on ? 'var(--sidenav-active-bg)' : 'transparent',
+    // Metricas alinhadas ao portal do financiador para as sidebars ficarem
+    // identicas em tamanho e tipografia: linha de 37px (21 de texto + 8+8 de
+    // padding), icone 16, raio 8 e peso 400 tambem no item ativo.
+    display: 'flex', alignItems: 'center', gap: 8, width: '100%', height: 37, padding: '8px 12px',
+    border: 'none', borderRadius: 'var(--radius-sm)', background: on ? 'var(--sidenav-active-bg)' : 'transparent',
     color: on ? 'var(--sidenav-active-fg)' : 'var(--text-body)', fontFamily: 'inherit', fontSize: 14,
-    fontWeight: on ? 600 : 500, textAlign: 'left', cursor: 'pointer', position: 'relative', boxSizing: 'border-box',
+    fontWeight: 400, textAlign: 'left', cursor: 'pointer', position: 'relative', boxSizing: 'border-box',
     transition: 'background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out)',
   });
 
@@ -196,7 +199,7 @@ export function SideNav({
 
   const fullNav = (extra) => (
     <nav ref={navRef} aria-label="Navegação principal" tabIndex={-1} style={{
-      display: 'flex', flexDirection: 'column', gap: 2, width: 260, height: '100%', boxSizing: 'border-box',
+      display: 'flex', flexDirection: 'column', gap: 0, width: 300, height: '100%', boxSizing: 'border-box',
       padding: 12, background: 'var(--surface-card)', borderRight: '1px solid var(--border-subtle)',
       fontFamily: 'var(--font-sans)', ...style, ...extra,
     }}>
