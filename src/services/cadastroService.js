@@ -77,3 +77,43 @@ export const validarSegundoFator = (codigo) =>
     },
     { delay: 700 }
   );
+
+/**
+ * Usuário logado do portal.
+ *
+ * Front-only: não há sessão real no portal do cedente. Começa no aprovador
+ * para a fila de assinatura ter ação disponível na primeira visita.
+ */
+let usuarioAtualId = 'usr-1';
+
+export const obterUsuarioAtual = () =>
+  request(() => {
+    const usuario = base.usuarios.find((item) => item.id === usuarioAtualId);
+    if (!usuario) throw new Error(`Usuário ${usuarioAtualId} não encontrado.`);
+    return clone(usuario);
+  }, { delay: 120 });
+
+export const definirUsuarioAtual = (id) =>
+  request(() => {
+    const usuario = base.usuarios.find((item) => item.id === id);
+    if (!usuario) throw new Error(`Usuário ${id} não encontrado.`);
+    if (usuario.status !== 'ativo') {
+      throw new Error(`${usuario.nome} não está ativo e não pode operar o portal.`);
+    }
+    usuarioAtualId = id;
+    return clone(usuario);
+  }, { delay: 120 });
+
+export const listarUsuariosParaTroca = () =>
+  request(() => clone(base.usuarios.filter((item) => item.status === 'ativo')), { delay: 120 });
+
+/**
+ * Alçada de assinatura: só o aprovador assina termo de cessão.
+ *
+ * Síncrona de propósito — a UI consulta a cada render para decidir se habilita
+ * o botão, e um await aqui causaria piscada entre habilitado e bloqueado.
+ */
+export const podeAssinar = (usuario) => usuario?.papel === 'aprovador';
+
+export const MOTIVO_SEM_ALCADA =
+  'Só usuários com papel de aprovador podem assinar o termo de cessão.';
