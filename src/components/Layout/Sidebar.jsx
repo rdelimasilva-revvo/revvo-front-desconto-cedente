@@ -66,8 +66,9 @@ const Marca = styled.div`
   padding: ${(props) => (props.$recolhida ? '16px 8px' : '20px 16px 16px')};
   border-bottom: 1px solid var(--border-subtle);
 
+  /* 40px expandido: mesmo tamanho do logo no portal do financiador. */
   img {
-    height: ${(props) => (props.$recolhida ? '26px' : '30px')};
+    height: ${(props) => (props.$recolhida ? '26px' : '40px')};
     width: auto;
   }
 
