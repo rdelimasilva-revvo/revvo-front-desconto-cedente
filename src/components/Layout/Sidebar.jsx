@@ -63,8 +63,10 @@ const Marca = styled.div`
   justify-content: center;
   gap: 8px;
   text-align: center;
-  padding: ${(props) => (props.$recolhida ? '16px 8px' : '20px 16px 16px')};
-  border-bottom: 1px solid var(--border-subtle);
+  /* Mesmo espacamento do portal do financiador: 16px acima do logo, nada
+     abaixo do titulo e sem separador — lá o bloco tem padding 0 e o respiro
+     vem do container, que aqui não existe. */
+  padding: ${(props) => (props.$recolhida ? '16px 8px' : '16px 16px 0')};
 
   /* 40px expandido: mesmo tamanho do logo no portal do financiador. */
   img {
