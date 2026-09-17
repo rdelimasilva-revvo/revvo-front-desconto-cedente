@@ -14,3 +14,6 @@ dist
 
 # Configuracao local de ferramentas
 .claude/settings.local.json
+
+# Area de trabalho do processo de execucao de planos (ledger, briefs, diffs)
+.superpowers
